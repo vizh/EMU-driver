@@ -2047,7 +2047,8 @@ OSArray * EMUUSBAudioDevice::BuildPath(UInt8 controlInterfaceNum, UInt8 starting
                         curPath->release();
                         curPath = NULL;
                     }
-                    FailIf(NULL == thisUnitIDNum, Exit);// fail here instead of earlier
+                    // That prevents device detection on some systems. Dirty hack...
+                    // FailIf(NULL == thisUnitIDNum, Exit);// fail here instead of earlier
                 }
                 tempPath->release();// release the tempPath
                 return curPath;// originally set the subtype to 0 to stop
